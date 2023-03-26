@@ -1,0 +1,219 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./style.css" />
+    <link
+      rel="icon"
+      href="./assets/img/fond-ecran.webp"
+      type="image/webp" />
+
+    <!-- BOOTSTRAP -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+    <!-- MATERIAL ICONES (google fonts) -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
+    <!-- ANIMATE.CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>Calculatrice</title>
+  </head>
+
+  <body style="background-color: #3d405b; height: 100vh">
+    <!-- Partie contenant des informations générales sur la page -->
+    <header>
+      <!-- Boutton info -->
+      <div class="mt-5">
+        <button  id="btnOnOff" type="button" class="btn btn-primary" onclick="toggleContenu()">Masquer les alertes</button>
+        <button
+          class="btn btn-lg btn-success border border-2"
+          onclick="openInfoModale()">
+          <span
+            id="info-logo"
+            class="material-icons">
+            help_center
+          </span>
+          INFO
+        </button>
+      </div>
+
+      <!-- Modal Info -->
+      <div
+        class="modal"
+        id="info-modale">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+              <h5 class="modal-title">Voici les infos:</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="text-center bg-light mt-2 border border-5 mx-5 header">
+                <div class="text-dark m-3">
+                  <p>
+                    <strong class="text-danger ">
+                      CLAVIER/SOURIS
+                    </strong>
+                    pour
+                    <strong class="text-secondary ">
+                      INTERAGIR
+                    </strong>
+                    avec le site
+                  </p>
+                  <p>
+                    <strong class="text-danger ">ENTRER</strong>
+                    pour
+                    <strong class="text-secondary ">
+                      CALCULER
+                    </strong>
+                    votre saisie
+                  </p>
+                  <p>
+                    <strong class="text-warning">ORANGE</strong>
+                    veut dire qu'on attend
+                    <br />
+                    <strong class="text-secondary">
+                      UN OPERATEUR SUIVI D'UN CHIFFRE
+                    </strong>
+                  </p>
+                  <p>
+                    <strong class="text-danger">
+                      BACKSPACE
+                    </strong>
+                    pour
+                    <strong class="text-success">
+                      SUPPRIMER
+                    </strong>
+                  </p>
+                  <h3>
+                    <strong class="text-decoration-underline">Règles générales:</strong>
+                  </h3>
+                  <p>
+                    <strong class="text-danger">Si Start</strong>
+                    with
+                    <strong class="text-success "
+                      >Enter/=</strong
+                    >
+                    <strong class="text-dark">-></strong>
+                    <strong class="text-primary"
+                      >alert('Merci de commencer par un chiffre.')</strong
+                    >.
+                  </p>
+                  <p>
+                    <strong class="text-danger">Si 2x</strong>
+                    <strong class="text-success "
+                      >Symbols</strong
+                    >
+                    <strong class="text-dark">-></strong>
+                    <strong class="text-primary">alerteSymbols()</strong>
+                    <strong class="text-dark">-></strong> dernier <strong class="text-success"
+                      >symbol</strong rentré,
+                    supprimé.
+                  </p>
+                  <p>
+                    <strong class="text-danger">Une opération complète</strong>
+                    doit comprendre un <strong class="text-primary"
+                      >chiffre</strong> après un symbol.
+                  </p>
+
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+   <!-- Partie s'occupant de l'alerte pour les symbols -->
+    <div id="alerte-symbols" class="mx-auto text-center col-md-3"></div>
+    <!-- Création du contenaire qui contiendra la calculatrice  -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mx-auto d-flex align-items-center mt-3">
+          <!-- Création de la calculatrice -->
+          <div class="calculator border border-1">
+            
+
+            <!-- Input inaccessible car affiche seulement les résultats de saisies/calculs -->
+            <input type="text" class="form-control" id="display" disabled />
+            <br />
+            <!-- Création des boutons de la calculatrice en débutant par la rangée du haut-->
+                 <div class="row">    
+                  <!-- Ajoutez le bouton "Supprimer" -->
+                     <button id="btn-delete" class="btn btn-success border border-2 col" onclick="deleteLastInput()">Supprimer</button>
+                 </div>
+                 <!-- Ajout des touches de haut/gauche à bas/droite -->
+            <div class="row">
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('7')">7</button>
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('8')">8</button>
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('9')">9</button>
+              <button class="btn btn-secondary col-2 border border-2" onclick="addToDisplay('/')">/</button>
+            </div>
+            <div class="row">
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('4')">4</button>
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('5')">5</button>
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('6')">6</button>
+              <button class="btn btn-secondary col-2 border border-2" onclick="addToDisplay('*')">*</button>
+            </div>
+            <div class="row">
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('1')">1</button>
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('2')">2</button>
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('3')">3</button>
+              <button class="btn btn-secondary col-2 border border-2" onclick="addToDisplay('-')">-</button>
+            </div>
+            <div class="row">
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('0')">0</button>
+              <button class="btn btn-secondary col border border-2" onclick="addToDisplay('.')">.</button>
+              <button class="btn btn-secondary col border border-2" id="btn-enter" onclick="calculate()">=</button>
+              <button class="btn btn-secondary col-2 border border-2" onclick="addToDisplay('+')">+</button>
+              <div class="row mt-3">
+                <button class="btn btn-danger col border border-2" onclick="reset()">C</button>
+                <button class="btn btn-primary col border border-2" onclick="openHistoryModal()">Historique</button> 
+              </div>            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+    <!-- Partie s'occupant de l'alerte historique -->
+    <div id="alerte-historique" class="mx-auto text-center col-md-3"></div>
+
+    <!-- Modal (fenêtre s'ouvrant)-->
+    <div class="modal fade" id="historyModal">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-between">
+            <h5 class="modal-title" id="historyModalLabel">Historique des calculs</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="historyModalBody">
+            <!-- Les données de l'historique seront ajoutées ici -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

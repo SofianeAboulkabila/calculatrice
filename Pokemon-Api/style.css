@@ -1,0 +1,286 @@
+/* Polices de caractères */
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+body {
+  background: url(./assets/img/pokemon.webp) center/cover;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Press Start 2P', sans-serif;
+}
+
+/* Icône permettant de rechercher un pokémon  */
+#search-pokemon {
+  max-height: 6vmax;
+}
+
+/* Bande verticale permettant le placement de select et de l'img loupe Pokémon */
+#hero-search {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+/* Styles pour la liste déroulante de sélection des Pokémon */
+#pokemons-select {
+  margin-top: 10px;
+  outline: none;
+  width: 17rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border: 5px solid #fde33d;
+  border-radius: 4px;
+  font-weight: 800;
+}
+
+/* Styles pour la page d'affichage des informations du Pokémon */
+#pokemon-page {
+  position: relative;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 600px;
+  background-color: #000000;
+  border: 5px solid #fde33d;
+  border-radius: 4px;
+  text-align: center;
+  display: none;
+  height: auto;
+}
+
+/* Style de la div contenant les informations détaillées du Pokémon */
+#div-box {
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(32, 99%, 36%, 0.185)'/><path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='0.5' stroke='hsla(0, 0%, 100%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  position: absolute;
+  left: 44%;
+  top: 10%;
+  height: 60%;
+  max-width: 50%;
+  border: 3px solid rgb(255, 0, 0);
+}
+
+/* Permet de styliser uniquement les images front/back du Pokémon */
+/* Sinon les images utilisées pour les forms sont aussi affectés*/
+#pokemon-page > img:nth-child(n + 2) {
+  margin-bottom: 5%;
+  width: 35%;
+  margin-right: 75%;
+  border: 3px solid #fde33d;
+  box-shadow: inset 0px 3px 15px 3px rgba(255, 0, 0, 0.8);
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(32, 99%, 36%, 0.185)'/><path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='0.5' stroke='hsla(0, 0%, 100%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+}
+
+/* Paramètres globaux des balises ul, permet de forcer les paramètres responsives de la box */
+#pokemon-page ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Utilisé pour forcer le retour à la ligne après "info" et y mettre un espacement */
+#pokemon-info-style {
+  display: block;
+  flex-direction: column;
+  gap: 0.6vmin;
+}
+
+/* Paramètres globaux de style de la div comportant les informations du Pokémon */
+#pokemon-page li,
+h2,
+h3 {
+  display: flex;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 1px 0 #969696, 2px 2px 5px #aba8a8;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+li {
+  font-size: 1.85vmin;
+}
+
+/* Style du numéro (#ID) et nom du Pokémon */
+h2,
+h3 {
+  text-shadow: 1px 1px 2px rgb(71, 38, 38), 0 0 1em rgb(255, 255, 255),
+    0 0 0.2em rgb(255, 255, 255);
+  color: rgb(255, 196, 0);
+  font-size: 2.6vmin;
+}
+
+/* Style des informations collectés sur l'API */
+#pokemon-page span {
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+/* Style des balises strong ex: "Poids:" */
+#pokemon-page strong {
+  color: rgb(255 0 0);
+  font-size: 2.2vmin;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(0, 0, 0),
+    0 0 0.2em rgb(255, 255, 255);
+}
+
+/* Aligne les options */
+option {
+  text-align: center;
+}
+
+/* Classe permettant de retirer le display */
+.remove {
+  display: none;
+}
+
+/*  Taille des icônes form Pokémon */
+#pokemon-shiny,
+#pokemon-default,
+#pokemon-female {
+  height: 8vmin;
+}
+
+/* Taille pour les types de Pokémon */
+#pokemon-types {
+  font-size: 1.15vmax;
+}
+
+/* Couleurs des types de Pokémon  */
+.type-normal {
+  background-color: #a8a878;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-fighting {
+  background-color: #c03028;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-flying {
+  background-color: #a890f0;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-poison {
+  background-color: #a040a0;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-ground {
+  background-color: #e0c068f1;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-rock {
+  background-color: #e0bb1a;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-bug {
+  background-color: #a8b820;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-ghost {
+  background-color: #705898;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-steel {
+  background-color: #b8b8d0;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-fire {
+  background-color: #f03030;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-water {
+  background-color: #6890f0;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-grass {
+  background-color: #78c850;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-electric {
+  background-color: #f8d030;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-psychic {
+  background-color: #f85888;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-ice {
+  background-color: #98d8d8;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-dragon {
+  background-color: #7038f8;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-dark {
+  background-color: #705848;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+.type-fairy {
+  background-color: #ee99ac;
+  padding: 1vmin;
+  border-radius: 25px;
+}
+
+#loading-page {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(61, 59, 59, 0.8);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border: 16px ridge #ffe450;
+  box-sizing: border-box;
+}
+
+#loading-page img {
+  width: 50px;
+  height: 50px;
+}

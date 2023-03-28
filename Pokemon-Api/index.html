@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="theme-color"
+      content="#317EFB" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="style.css" />
+    <link
+      rel="icon"
+      href="./assets/img/pokeball.webp"
+      type="pokeball"
+      media="all" />
+      <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <script src="./js/index.js"></script>
+    <title>Pokedex</title>
+  </head>
+
+
+  <!-- Page d'attente -->
+  <body">
+    <div id="loading-page">
+      <strong> <p  style="font-size: 0.9rem;" class="animate__animated animate__rubberBand">
+                                  Bienvenue!
+        <br />
+        <br />
+        Cette loading page ne sert strictement à rien mais je trouve ça cool!
+
+        <br />
+        <br />
+        Merci de bien vouloir cliquer sur la pokeball pour accéder au site :)
+      </p>
+      
+
+      <br />
+      <br />
+
+         </strong>
+      <div class="animate__animated animate__rotateIn">
+      <img
+        src="./assets/img/pokeball.webp"
+        alt="" onclick="supprimer()"  class="animate__animated animate__rubberBand animate__infinite	"/>
+        </div>
+       
+    </div>
+    <!-- La liste déroulante de sélection des Pokémon -->
+    <div id="hero-search">
+      <select id="pokemons-select" class="animate__animated animate__backInLeft"></select>
+      <img class="animate__animated animate__backInRight"
+        src="./assets/img/loupe.webp"
+        alt=""
+        id="search-pokemon" />
+    </div>
+
+    <!-- La page d'affichage des informations du Pokémon -->
+    <div id="pokemon-page" class="animate__animated animate__backInDown">
+      <div id="div-box">
+        <ul>
+          <h3 id="pokemon-details3"></h3>
+          <h2 id="pokemon-details2"></h2>
+          <li><span id="pokemon-types"></span></li>
+          <li><strong>Poids:</strong> <span id="pokemon-weight"></span> kg</li>
+          <li><strong>Taille:</strong> <span id="pokemon-height"></span>m</li>
+          <li id="pokemon-info-style">
+            <strong>Info:</strong><span id="pokemon-info"></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Emplacements pour les images du Pokémon  -->
+      <img
+        id="pokemon-image"
+        src=""
+        alt="" />
+      <img
+        id="pokemon-image2"
+        src=""
+        alt="" />
+      <!-- Emplacements pour les boutons/img pour changer la form du Pokémon -->
+      <div id="pokemon-form">
+        <img
+          src="./assets/img/male.webp"
+          alt="default male"
+          id="pokemon-default" />
+        <img
+          src="./assets/img/female.webp"
+          alt="female"
+          id="pokemon-female" />
+        <img
+          src="./assets/img/shiny.webp"
+          alt="shiny"
+          id="pokemon-shiny" />
+      </div>
+    </div>
+  </body>
+</html>
